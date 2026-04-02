@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TokioNauta – Tu guía personal en Tokio</title>
+  <title>TokioNauta – Guía privado en español en Tokio | Tours personalizados</title>
+  <meta name="description" content="Tour privado en español en Tokio. Guía japonés local — desde templos y santuarios hasta Akihabara y maid cafés. 100% personalizado. Reserva gratis por WhatsApp.">
+  <meta name="keywords" content="guía privado tokio español, tour en español tokio, visita guiada tokio español, tour privado japon español, guía tokio hispanohablante">
+  <meta property="og:title" content="TokioNauta – Guía privado en español en Tokio">
+  <meta property="og:description" content="Tours privados y personalizados en Tokio en español. Desde lugares tradicionales hasta los rincones más frikis. Consulta gratuita por WhatsApp.">
+  <meta property="og:url" content="https://tokionauta.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -53,6 +58,43 @@
       padding:.45rem 1.3rem; border-radius:50px;
     }
     .nav-cta:hover { background:var(--brown) !important; }
+
+    /* ─── HAMBURGER ─── */
+    .hamburger {
+      display:none;
+      flex-direction:column; gap:5px;
+      cursor:pointer; padding:.4rem;
+      background:none; border:none;
+    }
+    .hamburger span {
+      display:block; width:24px; height:2px;
+      background:var(--brown); border-radius:2px;
+      transition:all .3s;
+    }
+    .mobile-menu {
+      display:none;
+      position:fixed; top:0; left:0; right:0; bottom:0;
+      background:var(--cream); z-index:99;
+      flex-direction:column; align-items:center; justify-content:center;
+      gap:2.5rem;
+    }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a {
+      font-family:'Playfair Display', serif;
+      font-size:2rem; font-weight:700;
+      color:var(--brown); text-decoration:none;
+      transition:color .2s;
+    }
+    .mobile-menu a:hover { color:var(--orange); }
+    .mobile-close {
+      position:absolute; top:1.5rem; right:1.5rem;
+      font-size:1.8rem; cursor:pointer;
+      background:none; border:none; color:var(--brown);
+    }
+    @media (max-width:768px) {
+      .hamburger { display:flex; }
+      nav ul { display:none; }
+    }
 
     /* ─── SHARED ─── */
     .container { max-width:1100px; margin:0 auto; }
@@ -338,6 +380,7 @@
     }
 
     @media (max-width:768px) {
+      .hamburger { display:flex; }
       nav ul { display:none; }
       nav { padding:1rem 1.5rem; }
       section { padding:4.5rem 1.4rem; }
@@ -359,7 +402,19 @@
     <li><a href="#precios">Precios</a></li>
     <li><a href="#reserva" class="nav-cta">Reservar</a></li>
   </ul>
+  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
+  <a href="#tours" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Tours</a>
+  <a href="#sobre-mi" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Sobre mí</a>
+  <a href="#precios" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Precios</a>
+  <a href="#reserva" onclick="document.querySelector('.mobile-menu').classList.remove('open')" style="color:var(--orange);">Reservar</a>
+</div>
 
 
 <!-- 1. HERO -->
@@ -607,15 +662,22 @@
     <p class="lead">Un precio único por hora, sin importar cuántas personas seáis.</p>
 
     <div class="price-card">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
         <div style="background:var(--orange-pale); border-radius:1.2rem; padding:1.2rem .8rem; text-align:center;">
-          <div style="font-family:'Playfair Display',serif; font-size:clamp(1.6rem,7vw,2.8rem); font-weight:900; color:var(--orange); line-height:1;">¥15,000</div>
-          <div style="font-size:.85rem; color:var(--brown-mid); margin-top:.3rem;">4 horas</div>
+          <div style="font-family:'Playfair Display',serif; font-size:clamp(1.6rem,6vw,2.4rem); font-weight:900; color:var(--brown); line-height:1;">4 horas</div>
+          <div style="font-size:1rem; font-weight:600; color:var(--orange); margin-top:.4rem;">¥20,000</div>
+          <div style="font-size:.75rem; color:var(--brown-mid); margin-top:.2rem;">~€120</div>
         </div>
         <div style="background:var(--orange-pale); border-radius:1.2rem; padding:1.2rem .8rem; text-align:center;">
-          <div style="font-family:'Playfair Display',serif; font-size:clamp(1.6rem,7vw,2.8rem); font-weight:900; color:var(--orange); line-height:1;">¥18,000</div>
-          <div style="font-size:.85rem; color:var(--brown-mid); margin-top:.3rem;">6 horas</div>
+          <div style="font-family:'Playfair Display',serif; font-size:clamp(1.6rem,6vw,2.4rem); font-weight:900; color:var(--brown); line-height:1;">6 horas</div>
+          <div style="font-size:1rem; font-weight:600; color:var(--orange); margin-top:.4rem;">¥24,000</div>
+          <div style="font-size:.75rem; color:var(--brown-mid); margin-top:.2rem;">~€145</div>
         </div>
+      </div>
+      <div style="background:var(--orange); border-radius:1.2rem; padding:1.2rem; text-align:center; margin-bottom:1.5rem;">
+        <div style="font-family:'Playfair Display',serif; font-size:clamp(1.6rem,6vw,2.4rem); font-weight:900; color:var(--white); line-height:1;">Día completo</div>
+        <div style="font-size:1rem; font-weight:600; color:rgba(255,255,255,.9); margin-top:.4rem;">¥40,000 · ~€240</div>
+        <div style="font-size:.78rem; color:rgba(255,255,255,.75); margin-top:.3rem;">Sin límite de horas · Recogida y regreso incluidos · Solo Tokio</div>
       </div>
       <div style="font-size:.82rem; color:var(--brown-mid); text-align:center; margin-bottom:1.5rem;">Precio por grupo · Sin importar el número de personas</div>
 
@@ -630,7 +692,7 @@
         <strong>Aparte:</strong> El transporte de los viajeros, las entradas a museos o atracciones y las consumiciones son por cuenta del viajero. El pago se realiza en efectivo (yenes) o por transferencia online — los detalles se confirman por WhatsApp.
       </div>
       <div class="price-cancel">
-        🗓️ <strong>Cancelación gratuita</strong> hasta las 23:59 del día 3 días antes del tour. Después de esa hora, se aplica el 100% del precio.
+        🗓️ <strong>Cancelación gratuita</strong> hasta las 23:59 del día 2 días antes del tour (48 horas). Después de esa hora, se aplica el 100% del precio.
       </div>
     </div>
   </div>
@@ -644,6 +706,10 @@
     <!-- ★ TÍTULO — edita aquí -->
     <h2>¿Cuándo nos vemos?</h2>
     <p class="lead">Rellena el formulario y te contactaré por WhatsApp para ultimar los detalles. El tipo de tour se puede cambiar después.</p>
+
+    <div style="background:var(--orange-pale); border-radius:1rem; padding:1rem 1.2rem; margin-bottom:2rem; font-size:.9rem; color:var(--brown-mid); line-height:1.7;">
+      💬 <strong style="color:var(--brown);">La consulta es gratuita y sin compromiso.</strong> No te preocupes si no tienes todo claro — la duración, el tipo de tour y el itinerario lo decidimos juntos por WhatsApp. Pon lo que tengas en mente y hablamos.
+    </div>
 
     <form id="bookingForm">
       <div class="form-grid">
@@ -674,8 +740,9 @@
           <label for="horas">Duración *</label>
           <select id="horas" required>
             <option value="">Selecciona</option>
-            <option>4 horas (¥15,000)</option>
-            <option>6 horas (¥18,000)</option>
+            <option>4 horas (¥20,000 · ~€120)</option>
+            <option>6 horas (¥24,000 · ~€145)</option>
+            <option>Día completo — sin límite de horas (¥40,000 · ~€240)</option>
           </select>
         </div>
         <div class="fg">
@@ -729,7 +796,7 @@
     </details>
     <details>
       <summary>¿Cuál es la política de cancelación?</summary>
-      <p>Cancelación gratuita hasta las 23:59 del día 3 días antes del tour. Por ejemplo, para un tour el 6 de febrero, tienes hasta el 3 de febrero a las 23:59. Después de esa hora se aplica el 100% del precio.</p>
+      <p>Cancelación gratuita hasta las 23:59 del día 2 días antes del tour (48 horas). Por ejemplo, para un tour el 6 de febrero, tienes hasta el 4 de febrero a las 23:59. Después de esa hora se aplica el 100% del precio.</p>
     </details>
   </div>
 </section>
@@ -740,6 +807,12 @@
   <div class="foot-logo">TokioNauta</div>
   <p>Tu guía privado en Tokio · En español<br>
     <a href="#tours">Tours</a> · <a href="#sobre-mi">Sobre mí</a> · <a href="#precios">Precios</a> · <a href="#reserva">Reservar</a>
+  </p>
+  <p style="margin-top:1.2rem;">
+    <a href="https://www.instagram.com/tokionauta" target="_blank" style="display:inline-flex; align-items:center; gap:.4rem; color:var(--orange-light); font-size:.9rem;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      @tokionauta
+    </a>
   </p>
   <p style="margin-top:1.5rem;font-size:.76rem;opacity:.4;">© 2025 TokioNauta · Tokio, Japón</p>
 </footer>
